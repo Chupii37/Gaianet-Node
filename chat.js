@@ -67,7 +67,7 @@ const generateQuery = () => {
 // Main Function to handle everything
 (async () => {
     try {
-        console.log('BOT Auto SendCHAT GAIANET By [Peking404XChupiiPrt666]\n');
+        console.log('BOT Auto Send CHAT GAIANET By Chupii\n');
 
         // Get Node ID from user
         const nodeId = await askForNodeId();
