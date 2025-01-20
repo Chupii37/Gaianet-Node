@@ -40,28 +40,52 @@ const questionStructures = [
     'where to visit in {location}'
 ];
 
-// Sample items and concepts (can be expanded)
+// More context-specific lists
+const places = [
+    'supermarket', 'library', 'park', 'museum', 'Eiffel Tower', 'Paris', 'Tokyo', 'New York', 'beach'
+];
+const actions = [
+    'build', 'repair', 'find', 'make', 'create', 'learn', 'improve', 'cook', 'design'
+];
 const items = [
-    'supermarket', 'paper airplane', 'moon landing', 'pet turtle', 'photosynthesis', 'Eiffel Tower', 'blog', 'iPhone', 'concert tickets',
-    'chess', 'World War II', 'Great Wall of China', 'scrambled eggs', 'quantum physics', 'used car', 'cake', 'climate change', 'sleep',
-    'Titanic', 'gym', 'smartphone screen', 'solar eclipse', 'passport photo', 'cat', 'dinosaurs', 'free music', 'resume', 'Mars', 
-    'Paris', 'productivity', 'holiday', 'art supplies', 'meditate', 'computer', 'Mount Everest', 'headache', 'tomatoes', 'blood donation',
-    'memory', 'television', 'Bermuda Triangle', 'dishwasher', 'full moon', 'coffee', 'weight loss', 'housing'
+    'cake', 'iPhone', 'chess', 'moon landing', 'pet turtle', 'Eiffel Tower', 'smartphone', 'blog', 'used car'
+];
+const events = [
+    'World War II', 'moon landing', 'Titanic sinking', 'solar eclipse', 'solar storm'
+];
+const verbs = [
+    'see', 'find', 'visit', 'celebrate', 'experience'
+];
+const skills = [
+    'writing', 'programming', 'painting', 'cooking', 'public speaking', 'playing chess'
+];
+const concepts = [
+    'photosynthesis', 'quantum physics', 'climate change', 'gravity', 'free will'
+];
+const locations = [
+    'Paris', 'New York', 'Mars', 'the moon', 'Bermuda Triangle', 'Mount Everest'
+];
+const purposes = [
+    'study', 'work', 'hobby', 'exercise', 'health'
 ];
 
 // Function to generate a query
 const generateQuery = () => {
     const randomStructure = questionStructures[Math.floor(Math.random() * questionStructures.length)];
-    const randomItem = items[Math.floor(Math.random() * items.length)];
-    return randomStructure.replace(/{place}/g, randomItem)
-        .replace(/{action}/g, randomItem)
-        .replace(/{item}/g, randomItem)
-        .replace(/{concept}/g, randomItem)
-        .replace(/{event}/g, randomItem)
-        .replace(/{location}/g, randomItem)
-        .replace(/{verb}/g, randomItem)
-        .replace(/{skill}/g, randomItem)
-        .replace(/{purpose}/g, randomItem);
+
+    // Replace each placeholder with an appropriate item based on its category
+    const query = randomStructure
+        .replace(/{place}/g, places[Math.floor(Math.random() * places.length)])
+        .replace(/{action}/g, actions[Math.floor(Math.random() * actions.length)])
+        .replace(/{item}/g, items[Math.floor(Math.random() * items.length)])
+        .replace(/{concept}/g, concepts[Math.floor(Math.random() * concepts.length)])
+        .replace(/{event}/g, events[Math.floor(Math.random() * events.length)])
+        .replace(/{location}/g, locations[Math.floor(Math.random() * locations.length)])
+        .replace(/{verb}/g, verbs[Math.floor(Math.random() * verbs.length)])
+        .replace(/{skill}/g, skills[Math.floor(Math.random() * skills.length)])
+        .replace(/{purpose}/g, purposes[Math.floor(Math.random() * purposes.length)]);
+
+    return query;
 };
 
 // Main Function to handle everything
